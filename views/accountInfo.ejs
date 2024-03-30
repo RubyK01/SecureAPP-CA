@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Info</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+  		.dark-mode{
+  			background-color: #252625;
+  		}
+  		.toggle{
+  			border-color: black;
+  			background-color: #e8c900;
+  			padding: 2px;
+  			border: 2px solid;
+  			border-width: medium;
+  			padding-top: 10px;
+  			padding-bottom: 10px;
+  			border-radius: 12px;
+  		}
+	</style>
+  </head>
+  <body>
+    <div class="logo-area">
+      <!-- <div class="container"> -->
+        <div class="row">
+          <p>Pc Parts Elect</p>
+        </div>
+      <!-- </div> -->
+      <br>
+      <br>
+      <img class = "logo" src="../images/logo.jpg" alt="logo">
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #C6AC01;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="50" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+          </svg>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cart">Cart</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/account">Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/recommendation">Recommendation</a>
+            </li>
+            <%if(!loggedIn){ %> <!--To hide the login button after user has logged in -->
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+            <% } %>
+            <%if(loggedIn){ %> <!--To show the logout button after user has logged in -->
+              <li class="nav-item">
+              <form  action="/logout" method="get">
+                <a class ="nav-link"><button class="linkButton" type="submit" value = "submit">Logout</button></a>
+              </form>
+              </li>
+            <% } %>
+            <li>
+      				<button class="toggle" name="toggletheme" type="toggle" onclick="myFunction()">Theme</button>
+      			</li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Products
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="/generalProducts">General Products</a></li>
+                <li><a class="dropdown-item" href="/desktop">Desktop</a></li>
+                <li><a class="dropdown-item" href="/laptop">Laptop</a></li>
+                <li><a class="dropdown-item" href="/gpu">GPU</a></li>
+                <li><a class="dropdown-item" href="/cpu">CPU</a></li>
+                <li><a class="dropdown-item" href="/motherBoard">Mother board</a></li>
+                <li><a class="dropdown-item" href="/ram">Ram</a></li>
+                <li><a class="dropdown-item" href="/storage">HardDisks/SSD</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="content">
+      <div class="main">
+        <br>
+        <center>
+          <h3>Account Info</h3>
+          <!-- https://getbootstrap.com/docs/4.3/components/card/ -->
+          <div class="card" style="width: 18rem;">
+          <!-- image ref: https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.deviantart.com%2Fkarmaanddestiny%2Fart%2FDefault-user-icon-4-858661084&psig=AOvVaw2L4gdADvBaQljlRvRb1908&ust=1650541951788000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCPicnorKovcCFQAAAAAdAAAAABAD -->
+          <img src="../userSubmittedProducts/default.jpg" class="card-img-top" alt="user">
+          <div class="card-body">
+            <!-- Render user details -->
+            <p class="user"><%= userName %></p>
+            <p class="card-text-user">Name: <%=fName %> <%=lName %></p>
+            <p class="card-text-user">Contact: <%=email %></p>
+            <form action="accountInfo/delete" method="post">
+              <div class="space">
+                <button class="delete" type="submit" value = "submit">Delete</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        </center>
+    	</div>
+    </div>
+    <br>
+    <br>
+    <div class="footer">
+      <footer>
+        <center>
+          <h3 >Contact Details</h3>
+          <p> Email: PCPartsElect@gmail.com </p>
+          <p>Phone Number: 0837664069</p>
+        </center>
+      </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script>
+  			function myFunction() {
+  				var element = document.body;
+  				element.classList.toggle("dark-mode");
+  			}
+		</script>
+  </body>
+</html>

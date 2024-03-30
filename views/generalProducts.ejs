@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>General Products</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+  		.dark-mode{
+  			background-color: #252625;
+  		}
+  		.toggle{
+  			border-color: black;
+  			background-color: #e8c900;
+  			padding: 2px;
+  			border: 2px solid;
+  			border-width: medium;
+  			padding-top: 10px;
+  			padding-bottom: 10px;
+  			border-radius: 12px;
+  		}
+	</style>
+  </head>
+  <body>
+    <div class="logo-area">
+      <div class="container">
+        <div class="row">
+          <p>Pc Parts Elect</p>
+        </div>
+      </div>
+      <br>
+      <br>
+      <img class = "logo" src="../images/logo.jpg" alt="logo">
+    </div>
+    <!-- class ="col-sm-12 col-md-6 col-lg-2" -->
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #C6AC01;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="50" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+          </svg>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cart">Cart</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/account">Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/recommendation">Recommendation</a>
+            </li>
+            <%if(!loggedIn){ %> <!--To hide the login button after user has logged in -->
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+            <% } %>
+            <%if(loggedIn){ %> <!--To show the logout button after user has logged in -->
+              <li class="nav-item">
+              <form  action="/logout" method="get">
+                <a class ="nav-link"><button class="linkButton" type="submit" value = "submit">Logout</button></a>
+              </form>
+              </li>
+            <% } %>
+            <li>
+      				<button class="toggle" name="toggletheme" type="toggle" onclick="myFunction()">Theme</button>
+      			</li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Products
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="/generalProducts">General Products</a></li>
+                <li><a class="dropdown-item" href="/desktop">Desktop</a></li>
+                <li><a class="dropdown-item" href="/laptop">Laptop</a></li>
+                <li><a class="dropdown-item" href="/gpu">GPU</a></li>
+                <li><a class="dropdown-item" href="/cpu">CPU</a></li>
+                <li><a class="dropdown-item" href="/motherBoard">Mother board</a></li>
+                <li><a class="dropdown-item" href="/ram">Ram</a></li>
+                <li><a class="dropdown-item" href="/storage">HardDisks/SSD</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="content">
+      <div class="main">
+	   <h1 align="center"><b>Shopping Cart</b><h1>
+
+
+<!-- Cart by Glen-->
+<div class="container">
+	<h1><b>Your Basket</b></h1>
+	<div class="cart">
+		<div class="products">
+
+
+
+
+
+
+		</div>
+
+
+
+
+
+		<div class="cart-total">
+			<p>
+				<span>Total Price</span>
+				<span class = "totalprice">€0</span>
+			</p>
+			<p>
+				<span>Products added</span>
+				<span class = "totalitems">0</span>
+			</p>
+			<p>
+				<span>VAT</span>
+				<span>20%</span>
+			</p>
+			<a href="/checkOut">Proceed to Checkout</a>
+		</div>
+	</div>
+</div>
+			<!--General products page done by Glen All 51 products done created and done by Glen! 
+			Sorted into categories via price low to high by Jamie-->
+  		<h1 align="center"><b>General Products</b></h1>
+		<h5 align="center"><b>When updating the Quantity number please press Enter or click anywhere to update cart total.</b></h5>
+			<center><h5><b>Welcome to our products page.</b></h5>
+			<h5><b>Here you can browse our entire catalog of products when you have found an item you would like to purchase please select the add to cart button.</b></h5>
+    <center>
+			<div class="container">
+
+          <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/i7processor.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">Intel® Core™ i7-12700K Processor</a>
+              <br>
+			  <br>
+
+               <span class = "category"><h5>CPU</h5></span>
+    					<h3><b>€370</b></h3>
+
+    					  <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>34 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+          <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/RTX3070.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">MSI GeForce RTX 3070 Ti VENTUS 3X OC 8GB GDDR6 Graphics Card</a>
+			<br>
+
+              <span class = "category"><h5>GPU</h5></span>
+    					<h3><b>€999.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>21 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+          <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/gamingpc.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">AWD Lian Li Lancool II Mesh Intel i5 11400F RTX 3060 Ti 8GB Desktop PC for Gaming</a>
+              <br>
+             <span class = "category"> <h5>Desktop</h5> </span>
+    					<h3><b>€1199.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>10 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+          <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/Ram.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">16GB Corsair Vengeance LPX DDR4 3200MHz PC4-25600 CL16 Dual Channel Kit (2x 8GB) Black</a>
+              <br>
+              <span class = "category"><h5>RAM</h5></span>
+    					<h3><b>€75</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+                <span class="fa fa-star fa-2x"></span>
+    					<h5>12 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+          <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/1tbharddrive.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">WD Blue WD10EZEX - Hard drive - 1 TB - internal - 3.5" - SATA 6Gb/s - 7200 rpm - buffer: 64 MB</a>
+              <br>
+              <span class = "category"><h5>Storage</h5></span>
+    					<h3><b>€44.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>42 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+          <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/Laptop.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">Toshiba Notebook with 500GB HDD & 8GB RAM</a>
+			  <br>
+              <br>
+             <span class = "category"> <h5>Laptops and Notebooks</h5></span>
+    					<h3><b>€250</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>34 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+          <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/rtx2060.png"></a>
+			<div class="productTabDetail"><a class = "title" href="#">Inno3D GeForce RTX 2060 6GB Twin X2 Graphics Card</a>
+              <br>
+             <span class = "category"> <h5>GPU</h5></span>
+    					<h3><b>€419.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>22 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+          <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/SSD.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">Samsung 970 Evo Plus 500GB NVMe M.2 SSD</a>
+			 <br>
+              <br>
+             <span class = "category"> <h5>Storage</h5></span>
+    					<h3><b>€119.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>8 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+          <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/pc1.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">MINECRAFT ELITE DESKTOP PC AMD Ryzen 5 3600
+					8GB DDR4 2666MHz
+					4GB GTX 1650
+					256GB SSD</a>
+              <br>
+             <span class = "category"> <h5>GPU</h5></span>
+    					<h3><b>€899.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>7 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/500gb.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">HDD 500 GB SATA drive<br> </a>
+              <br>
+             <span class = "category"> <h5>Storage</h5></span>
+    					<h3><b>€15</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>9 reviews</h5>
+              <button class="reuseabale" href="#" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/Laptop1.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">MSI Katana GF66 15.6" Gaming Laptop - Intel® Core™ i7, RTX 3060, 512 GB SSD</a>
+              <br>
+             <span class = "category"> <h5>Laptops and Notebooks</h5></span>
+    					<h3><b>€1049.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    					<h5>78 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/motherboard1.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">Intel Z590 gaming motherboard with Wi-Fi and CAM features</a>
+              <br>
+             <span class = "category"> <h5>Motherboards</h5> </span>
+    					<h3><b>€219.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked "></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>14 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		   <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/gpu7.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">Sapphire TOXIC Radeon AMD RX 6900 XT 16GB GDDR6 Graphics Card</a>
+              <br>
+               <span class = "category"><h5>CPU</h5></span>
+    					<h3><b>€1399.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>7 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+
+		    <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/cpu1.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">Intel Core i9-10920X Cascade Lake 3.5GHz 19.25MB Cache LGA2066 CPU Desktop Processor</a>
+              <br>
+              <span class = "category"> <h5>CPU</h5></span>
+    					<h3><b>849.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    					<h5>5 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/laptop5.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">Lenovo ThinkPad E15 Intel i7 16GB DDR4-SDRAM 512GB SSD AMD Radeon RX 640 Notebook Laptop</a>
+              <br>
+               <span class = "category"><h5>Laptops and Notebooks</h5></span>
+    					<h3><b>€999.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>2 reviews</h5>
+              <button class="reuseabale" href="#" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/motherboard2.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">MSI Pro Z690-A Intel LGA 1700 ATX DDR4 Motherboard</a>
+              <br>
+               <span class = "category"><h5>Motherboards</h5></span>
+    					<h3><b>€199.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>22 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/ram1.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">32GB G.Skill DDR5 Trident Z5 RGB 6000MHz CL36 1.35V Dual Channel Kit 2x 16GB Silver</a>
+              <br>
+              <span class = "category"> <h5>RAM</h5></span>
+    					<h3><b>€449.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>88 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		    <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/desktop5.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">Intel Essentials EV4 - Home & Office Mini Tower Desktop PC</a>
+              <br>
+               <span class = "category"><h5>Desktop</h5></span>
+    					<h3><b>€649.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>54 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/motherboard6.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">MPG X570 GAMING PRO CARBON WIFI MOTHERBOARD</a>
+              <br>
+              <span class = "category"> <h5>Motherboards</h5></span>
+    					<h3><b>€259.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    					<h5>4 reviews</h5>
+              <button class="reuseabale" href="#" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/desktop12.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">AMD Ryzen™ 5 "Bellus" Gaming Desktop PC</a>
+              <br>
+			  <br>
+              <span class = "category"> <h5>Desktop</h5></span>
+    					<h3><b>€799.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>2 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/laptop7.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">Acer 14 Inch Touchscreen Full HD AMD Ryzen 5 8GB DDR4-SDRAM 128GB 5 Chromebook</a>
+              <br>
+               <span class = "category"><h5>Laptops and Notebooks</h5></span>
+    					<h3><b>€749.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>100 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		    <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/motherboard3.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">Gigabyte AMD B450 AM4 Aorus Micro ATX DDR4-SDRAM Motherboard</a>
+              <br>
+               <span class = "category"><h5>Motherboards</h5></span>
+    					<h3><b>€80</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>6 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		    <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/ram3.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">Samsung 4 GB DDR3 1600MHz</a>
+              <br>
+			  <br>
+
+               <span class = "category"><h5>RAM</h5></span>
+    					<h3><b>€19.99</b></h3>
+
+    					  <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>34 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/cpu7.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">Intel Pentium Gold G6400 Comet Lake 4GHz 4MB CPU Desktop Processor</a>
+              <br>
+               <span class = "category"><h5>CPU</h5></span>
+    					<h3><b>€65</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>109 reviews</h5>
+              <button class="reuseabale" href="#" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/ram7.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">8GB Kingston FURY Beast DDR5 6000MHz CL40 Memory Module (1 x 8GB)</a>
+              <br>
+             <span class = "category"> <h5>RAM</h5></span>
+    					<h3><b>€89.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    					<h5>56 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/i3processor.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">Intel Core i3-12100F Quad Core 3.30GHz CPU Alder Lake Processor - LGA 1700</a>
+              <br>
+               <span class = "category"><h5>CPU</h5></span>
+    					<h3><b>€99.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>2 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		    <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/cpu4.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">AMD Ryzen 9 5900X 3.7GHz 64MB L3 CPU Desktop Processor</a>
+              <br>
+               <span class = "category"><h5>CPU</h5></span>
+    					<h3><b>€499.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>58 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/Storage5.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">10TB Seagate IronWolf 3.5-inch 7200RPM SATA III 6Gbps 256MB Cache Internal Hard Drive</a>
+              <br>
+               <span class = "category"><h5>Storage</h5></span>
+    					<h3><b>€339.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>356 reviews</h5>
+              <button class="reuseabale" href="#" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/gpu5.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">Gigabyte NVIDIA GeForce GT 1030 2GB GDDR4 Graphics Card</a>
+              <br>
+               <span class = "category"><h5>GPU</h5></span>
+    					<h3><b>€119.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>20 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/laptop6.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">Samsung 11.6 Inch HD Intel Celeron N 4GB LPDDR4-SDRAM 16GB eMMC Wi-Fi 5 Chromebook</a>
+              <br>
+               <span class = "category"><h5>Laptops and Notebooks</h5></span>
+    					<h3><b>€289.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>53 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		    <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/ram5.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">8GB Kingston DDR5 4800MHz CL40 Memory Module (1 x 8GB)</a>
+              <br>
+             <span class = "category"> <h5>RAM</h5></span>
+    					<h3><b>€69.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>6 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/motherboard7.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">Gigabyte GA-H110-D3A Intel LGA1151 DDR4 USB 3.1 m.2 GB LAN ATX Motherboard - Black</a>
+              <br>
+               <span class = "category"><h5>Motherboards</h5></span>
+    					<h3><b>€49.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>1 reviews</h5>
+              <button class="reuseabale" href="#" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/desktop1.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">ODIN I80 i9-12900K  32GB Corsair RGB PRO 3600MHz12GB NVIDIA GEFORCE RTX 30801TB SAMSUNG 980 PRO M.22TB SEAGATE BARRACUDA HDD
+</a>
+              <br>
+               <span class = "category"><h5>Desktops</h5></span>
+    					<h3><b>€3149.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>17 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/cpu8.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">AMD Athlon 3000G Raven Ridge 3.5GHz 5MB Cache L3 AM4 CPU Processor</a>
+              <br>
+                <span class = "category"><h5>CPU</h5></span>
+    					<h3><b>€149.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    					<h5>171 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		    <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/motherboard5.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">MSI A520M-A PRO Motherboard 'mATX, AMD Ryzen 3000 3rd Gen</a>
+              <br>
+               <span class = "category"><h5>Motherboard</h5></span>
+    					<h3><b>€50</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>39 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/desktop4.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">Precision 3450 10th Gen Intel® Core™ i5-10505 Intel Integrated Graphics8 GB, 1 x 8 GB, DDR4 256 GB, M.2, PCIe NVMe, SSD, Class 40</a>
+              <br>
+               <span class = "category"><h5>Desktops</h5></span>
+    					<h3><b>€1000</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>2 reviews</h5>
+              <button class="reuseabale" href="#" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/gpu6.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">Gigabyte AORUS NVIDIA GeForce RTX 3090 24GB GDDR6X Graphics Card</a>
+              <br>
+              <span class = "category"><h5>GPU</h5></span>
+    					<h3><b>€3599.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    					<h5>1 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/cpu5.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">AMD Ryzen 5 5600 3.5 GHz Six-Core AM4 Desktop Processor</a>
+              <br>
+               <span class = "category"><h5>CPU</h5></span>
+    					<h3><b>€239.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>44 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		    <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/Storage3.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">4TB Seagate Barracuda 3.5-inch Sata III 6GB Internal Hard Drive</a>
+              <br>
+              <span class = "category"><h5>Storage</h5></span>
+    					<h3><b>€99.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>77 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/gpu2.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">ASUS GeForce GTX 1050 Ti 4GB Phoenix Fan Edition DVI-D HDMI DP 1.4 Gaming Graphics Card (PH-GTX1050TI-4G) Graphic Cards</a>
+              <br>
+              <span class = "category"><h5>GPU</h5></span>
+    					<h3><b>€200</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>6 reviews</h5>
+              <button class="reuseabale" href="#" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/desktop10.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">Intel Essentials GM4 - Gaming Desktop PC</a>
+              <br>
+              <span class = "category"><h5>Desktop</h5></span>
+    					<h3><b>€1299.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>2 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/desktop11.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">Intel Core i7 Gaming Desktop PC</a>
+              <br>
+              <span class = "category"><h5>Desktop</h5></span>
+    					<h3><b>€2449.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    					<h5>2 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		    <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/Storage8.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">2TB Seagate Barracuda 3.5-inch Sata III 6GB Internal Hard Drive</a>
+              <br>
+              <span class = "category"><h5>Storage</h5></span>
+    					<h3><b>49.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>66 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/desktop7.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">Intel Essentials EV1 - Home & Office Mini Tower Desktop PC</a>
+              <br>
+             <span class = "category"> <h5>Desktop</h5> </span>
+    					<h3><b>€429.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>2 reviews</h5>
+              <button class="reuseabale" href="#" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/motherboard4.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">MSI - PRO Z690-A DDR4 Socket LGA 1700 USB 3.2 Intel Motherboard</a>
+              <br>
+              <span class = "category"><h5>Motherboard</h5> </span>
+    					<h3><b>€180</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>11 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/laptop4.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">Lenovo ThinkBook Plus Hybrid Intel i5 8GB DDR4-SDRAM 13.3-inch 256GB SSD Laptop</a>
+              <br>
+             <span class = "category"> <h5>Laptops and Notebooks</h5> </span>
+    					<h3><b>€749.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>8 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		    <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/gpu1.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">ZOTAC NVIDIA GeForce RTX 3050 Twin Edge OC 8GB GDDR6 Video Card</a>
+              <br>
+               <span class = "category"><h5>GPU</h5></span>
+    					<h3><b>€429.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    					<h5>8 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/ram7.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">16GB Kingston Technology Fury Beast DDR5 5600MHz Memory Module (1x16GB)</a>
+              <br>
+               <span class = "category"><h5>RAM</h5> </span>
+    					<h3><b>€149.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    					<h5>99 reviews</h5>
+              <button class="reuseabale" href="#" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/ram9.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">1GB A-Data PC2700 DDR RAM CL2.5 module</a>
+              <br>
+             <span class = "category"> <h5>RAM</h5></span>
+    					<h3><b>€15.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>2 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/cpu6.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">Intel Core i5-9400 4.10GHz Coffee Lake 9MB LGA1151 CPU Desktop Processor</a>
+              <br>
+              <span class = "category"> <h5>CPU</h5> </span>
+    					<h3><b>€179.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    					<h5>66 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/laptop2.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">Dell Latitude 3310 Intel i5 8GB DDR4-SDRAM 13.3-inch 256GB SSD Touchscreen Laptop</a>
+              <br>
+             <span class = "category"> <h5>Laptops and Notebooks</h5> </span>
+    					 <h3><b>€849.99</b></h3>
+						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>2 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+
+            </div>
+
+          </div>
+		  <!-- Cart functionality done by Glen-->
+			
+			<script>
+				var addToCartButtons = document.getElementsByClassName('reuseabale')
+				for(var i = 0; i < addToCartButtons.length; i++) {
+					var button = addToCartButtons[i]
+					button.addEventListener('click', addTocartClicked)
+
+
+				}
+
+					//function that updates the cart total//
+					function updateCartTotal(){
+					var cartItemContainer = document.getElementsByClassName('cart')[0]
+					var cartRows = cartItemContainer.getElementsByClassName('product')
+					var total = 0
+					for (var i =0; i < cartRows.length; i++) {
+						var cartRow = cartRows[i]
+						var priceElement = cartRow.getElementsByClassName('productprice')[0]
+						var quantityElement = cartRow.getElementsByClassName('productquantity')[0]
+						console.log(priceElement, quantityElement)
+						var price = parseFloat(priceElement.innerText.replace('€', ''))
+						var quantity = quantityElement.value
+						console.log(price * quantity)
+
+						total = total + (price * quantity)
+					}
+					document.getElementsByClassName('totalprice')[0].innerText = '€' + total
+					document.getElementsByClassName('totalitems')[0].innerText = quantity = i
+
+				}
+
+
+
+
+				function addTocartClicked(event) {
+				var button = event.target
+				var shopItem = button.parentElement.parentElement
+				var ImgSrc = shopItem.getElementsByTagName('img')[0].src
+				var title = shopItem.getElementsByClassName('title')[0].innerText
+				var price = shopItem.getElementsByTagName('h3')[0].innerText
+				var category = shopItem.getElementsByClassName('category')[0].innerText
+
+				console.log(title, price, category, ImgSrc)
+				addItemToCart(title, price, category, ImgSrc)
+				updateCartTotal()
+
+				}
+
+
+				function addItemToCart(title, price, category, ImgSrc) {
+					var cartRow = document.createElement('div')
+					var cartItems = document.getElementsByClassName('products')[0]
+					var cartRowContents = `
+					<div class="product">
+
+				<img src="${ImgSrc}">
+
+				<div class="productinfo">
+
+					<h3 class="product-name">${title}</h3>
+
+					<h4 class="productprice">${price}</h4>
+
+					<h4 class="producttype">${category}</h4>
+
+					<p>Qnt:<input class="productquantity" <input value="1" name=""> </p>
+
+					<p class="productremove">
+
+						<i class="fa fa-trash" aria-hidden="true"></i>
+
+						<span class="remove">Remove</span>
+
+					</p>
+
+				</div>
+
+			</div>`
+				<!-- Removes a product-->
+					cartRow.innerHTML = cartRowContents
+					cartItems.append(cartRow)
+
+					var removeCartItems = document.getElementsByClassName('remove')
+					console.log(removeCartItems)
+					for (var i = 0; i < removeCartItems.length; i++) {
+					var button = removeCartItems[i]
+					button.addEventListener('click', function(event){
+					var buttonClicked = event.target
+					buttonClicked.parentElement.parentElement.parentElement.remove()
+					updateCartTotal()
+
+
+
+				})
+
+	}
+
+					var quantityInputs = document.getElementsByClassName('productquantity')
+						for (var i = 0; i < removeCartItems.length; i++) {
+							var input = quantityInputs[i]
+							input.addEventListener('change', quantitychanged)
+						}
+						function quantitychanged(event) {
+						var input = event.target
+						if(isNaN(input.value) || input.value <= 0) {
+								input.value = 1
+							}
+							updateCartTotal()
+						}
+
+
+
+
+				}
+
+
+
+				</script>
+
+
+					</div>
+					</div>
+				</div>
+
+			</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <footer>
+        <center>
+          <h3 >Contact Details</h3>
+          <p> Email: PCPartsElect@gmail.com </p>
+          <p>Phone Number: 0837664069</p>
+        </center>
+      </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script>
+  			function myFunction() {
+  				var element = document.body;
+  				element.classList.toggle("dark-mode");
+  			}
+		</script>
+  </body>
+</html>

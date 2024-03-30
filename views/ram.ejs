@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ram</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+  		.dark-mode{
+  			background-color: #252625;
+  		}
+  		.toggle{
+  			border-color: black;
+  			background-color: #e8c900;
+  			padding: 2px;
+  			border: 2px solid;
+  			border-width: medium;
+  			padding-top: 10px;
+  			padding-bottom: 10px;
+  			border-radius: 12px;
+  		}
+	</style>
+  </head>
+  <body>
+    <div class="logo-area">
+      <div class="container">
+        <div class="row">
+          <p>Pc Parts Elect</p>
+        </div>
+      </div>
+      <br>
+      <br>
+      <img class = "logo" src="../images/logo.jpg" alt="logo">
+    </div>
+    <!-- class ="col-sm-12 col-md-6 col-lg-2" -->
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #C6AC01;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="50" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+          </svg>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cart">Cart</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/account">Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/recommendation">Recommendation</a>
+            </li>
+            <%if(!loggedIn){ %> <!--To hide the login button after user has logged in -->
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+            <% } %>
+            <%if(loggedIn){ %> <!--To show the logout button after user has logged in -->
+              <li class="nav-item">
+              <form  action="/logout" method="get">
+                <a class ="nav-link"><button class="linkButton" type="submit" value = "submit">Logout</button></a>
+              </form>
+              </li>
+            <% } %>
+            <li>
+      				<button class="toggle" name="toggletheme" type="toggle" onclick="myFunction()">Theme</button>
+      			</li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Products
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="/generalProducts">General Products</a></li>
+                <li><a class="dropdown-item" href="/desktop">Desktop</a></li>
+                <li><a class="dropdown-item" href="/laptop">Laptop</a></li>
+                <li><a class="dropdown-item" href="/gpu">GPU</a></li>
+                <li><a class="dropdown-item" href="/cpu">CPU</a></li>
+                <li><a class="dropdown-item" href="/motherBoard">Mother board</a></li>
+                <li><a class="dropdown-item" href="/ram">Ram</a></li>
+                <li><a class="dropdown-item" href="/storage">HardDisks/SSD</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    </div class="content">
+      <div class="main">
+	  <br>
+      
+  		<h1 align="center"><b>Shopping cart</b></h1>
+    </center>
+			<div class="container">
+			<h1><b>Your Basket</b></h1>
+	<div class="cart">
+		<div class="products">
+
+
+
+
+
+
+		</div>
+
+
+
+
+
+		<div class="cart-total">
+			<p>
+				<span>Total Price</span>
+				<span class = "totalprice">€0</span>
+			</p>
+			<p>
+				<span>Number of Items</span>
+				<span class "totalitems">0</span>
+			</p>
+			<p>
+				<span>VAT</span>
+				<span>20%</span>
+			</p>
+			<a href="/checkOut">Proceed to Checkout</a>
+		</div>
+	</div>
+</div>
+  		<h1 align="center"><b>Ram Products</b></h1>
+		<h5 align="center"><b>When updating the Quantity number please press Enter or click anywhere to update cart total.</b></h5>
+    <center>
+			<div class="container">
+
+			<div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/ram9.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">1GB A-Data PC2700 DDR RAM CL2.5 module</a>
+              <br>
+             <span class = "category"> <h5>RAM</h5></span>
+    					<h3><b>€15.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>2 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+          <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/ram3.png"></a>
+			 <div class="productTabDetail"><a href="#">Samsung 4 GB DDR3 1600MHz</a>
+              <br>
+			  <br>
+
+              <h5>RAM</h5>
+    					<h3><b>€19.99</b></h3>
+
+    					  <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>34 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/ram5.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">8GB Kingston DDR5 4800MHz CL40 Memory Module (1 x 8GB)</a>
+              <br>
+             <span class = "category"> <h5>RAM</h5></span>
+    					<h3><b>€69.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>6 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/Ram.png"></a>
+			 <div class="productTabDetail"><a href="#">16GB Corsair Vengeance LPX DDR4 3200MHz PC4-25600 CL16 Dual Channel Kit (2x 8GB) Black</a>
+              <br>
+              <h5>RAM</h5>
+    					<h3><b>€75</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+                <span class="fa fa-star fa-2x"></span>
+    					<h5>12 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/ram7.png"></a>
+			 <div class="productTabDetail"><a class = "title" href="#">8GB Kingston FURY Beast DDR5 6000MHz CL40 Memory Module (1 x 8GB)</a>
+              <br>
+             <span class = "category"> <h5>RAM</h5></span>
+    					<h3><b>€89.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    					<h5>56 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		  		  <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/ram7.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">16GB Kingston Technology Fury Beast DDR5 5600MHz Memory Module (1x16GB)</a>
+              <br>
+               <span class = "category"><h5>RAM</h5> </span>
+    					<h3><b>€149.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    					<h5>99 reviews</h5>
+              <button class="reuseabale" href="#" type="button">Add to cart</button>
+            </div>
+          </div>
+		   <div class="productTabs">
+
+            <a href="/accountInfo"><img src="images/ram1.png"></a>
+			  <div class="productTabDetail"><a class = "title" href="#">32GB G.Skill DDR5 Trident Z5 RGB 6000MHz CL36 1.35V Dual Channel Kit 2x 16GB Silver</a>
+              <br>
+              <span class = "category"> <h5>RAM</h5></span>
+    					<h3><b>€449.99</b></h3>
+    					 <span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x checked"></span>
+    						<span class="fa fa-star fa-2x"></span>
+    					<h5>88 reviews</h5>
+              <button class="reuseabale" type="button">Add to cart</button>
+            </div>
+          </div>
+		<script>
+				var addToCartButtons = document.getElementsByClassName('reuseabale')
+				for(var i = 0; i < addToCartButtons.length; i++) {
+					var button = addToCartButtons[i]
+					button.addEventListener('click', addTocartClicked)
+
+
+				}
+
+
+					function updateCartTotal(){
+					var cartItemContainer = document.getElementsByClassName('cart')[0]
+					var cartRows = cartItemContainer.getElementsByClassName('product')
+					var total = 0
+					for (var i =0; i < cartRows.length; i++) {
+						var cartRow = cartRows[i]
+						var priceElement = cartRow.getElementsByClassName('productprice')[0]
+						var quantityElement = cartRow.getElementsByClassName('productquantity')[0]
+						console.log(priceElement, quantityElement)
+						var price = parseFloat(priceElement.innerText.replace('€', ''))
+						var quantity = quantityElement.value
+						console.log(price * quantity)
+
+						total = total + (price * quantity)
+					}
+					document.getElementsByClassName('totalprice')[0].innerText = '€' + total
+					document.getElementsByClassName('totalitems')[0].innerText = quantity = i
+
+				}
+
+
+
+
+				function addTocartClicked(event) {
+				var button = event.target
+				var shopItem = button.parentElement.parentElement
+				var ImgSrc = shopItem.getElementsByTagName('img')[0].src
+				var title = shopItem.getElementsByClassName('title')[0].innerText
+				var price = shopItem.getElementsByTagName('h3')[0].innerText
+				var category = shopItem.getElementsByClassName('category')[0].innerText
+
+				console.log(title, price, category, ImgSrc)
+				addItemToCart(title, price, category, ImgSrc)
+				updateCartTotal()
+
+				}
+
+
+				function addItemToCart(title, price, category, ImgSrc) {
+					var cartRow = document.createElement('div')
+					var cartItems = document.getElementsByClassName('products')[0]
+					var cartRowContents = `
+					<div class="product">
+
+				<img src="${ImgSrc}">
+
+				<div class="productinfo">
+
+					<h3 class="product-name">${title}</h3>
+
+					<h4 class="productprice">${price}</h4>
+
+					<h4 class="producttype">${category}</h4>
+
+					<p>Qnt:<input class="productquantity" <input value="1" name=""> </p>
+
+					<p class="productremove">
+
+						<i class="fa fa-trash" aria-hidden="true"></i>
+
+						<span class="remove">Remove</span>
+
+					</p>
+
+				</div>
+
+			</div>`
+
+					cartRow.innerHTML = cartRowContents
+					cartItems.append(cartRow)
+
+					var removeCartItems = document.getElementsByClassName('remove')
+					console.log(removeCartItems)
+					for (var i = 0; i < removeCartItems.length; i++) {
+					var button = removeCartItems[i]
+					button.addEventListener('click', function(event){
+					var buttonClicked = event.target
+					buttonClicked.parentElement.parentElement.parentElement.remove()
+					updateCartTotal()
+
+
+
+				})
+
+	}
+
+					var quantityInputs = document.getElementsByClassName('productquantity')
+						for (var i = 0; i < removeCartItems.length; i++) {
+							var input = quantityInputs[i]
+							input.addEventListener('change', quantitychanged)
+						}
+						function quantitychanged(event) {
+						var input = event.target
+						if(isNaN(input.value) || input.value <= 0) {
+								input.value = 1
+							}
+							updateCartTotal()
+						}
+
+
+
+
+				}
+
+
+
+				</script>
+
+      </div>
+    </div>
+    <div class="footer">
+      <footer>
+        <center>
+          <h3 >Contact Details</h3>
+          <p> Email: PCPartsElect@gmail.com </p>
+          <p>Phone Number: 0837664069</p>
+        </center>
+      </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script>
+  			function myFunction() {
+  				var element = document.body;
+  				element.classList.toggle("dark-mode");
+  			}
+		</script>
+  </body>
+</html>

@@ -1,0 +1,548 @@
+/* Tomas */
+html,body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  min-height: 400px;
+  margin-bottom: 10%;
+  clear: both;
+  height: 350%;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.logo{
+  height: 100px;
+  width: 150px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+}
+
+.logo-area{
+  background-color: grey;
+  padding-left: 730px;
+  position: relative;
+  padding-top: 25px;
+}
+
+.row{
+  position: absolute;
+  left: 740px;
+  font-size: 28px;
+  color: white;
+  font-style: oblique;
+  font-family: sans-serif;
+  padding-top: 2px;
+}
+
+.nav-item{
+  background-color: #e8c900;
+  border: 2px solid;
+  border-radius: 12px;
+  border-width: medium;
+  padding: 2px;
+}
+
+footer{
+  background-color: #C6AC01;
+  text-align: left-side;
+  color: #000000;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 20%;
+}
+
+.ParagraphOne{
+	text-align: center;
+	position: relative;
+	top: 100px;
+	border-width: 100px;
+	width: 50%;
+	left: 430px;
+	border: 2px solid;
+	border-radius: 12px;
+	padding: 2px;
+}
+
+.textcolour{
+	color: #000000;
+}
+
+.input-group{
+  width: 80%;
+}
+
+.reuseabale{
+  width: 70px;
+  left: 200px;
+  background-color: #C6AC01;
+  border-radius: 25px;
+  border: 2px solid;
+  display: inline-block;
+  color: black;
+}
+
+.reuseabale:hover{
+  background-color: #e8c900;
+}
+
+.delete{
+  background-color: #800000;
+  width: 70px;
+  left: 200px;
+  border: 2px solid;
+  border-radius: 25px;
+  display: inline-block;
+  color: black;
+}
+
+.delete:hover{
+  background-color: #cc0000;
+}
+
+.linkButton{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.d-grid{
+  position: relative;
+}
+
+.space{
+  display: inline-block;
+}
+
+.form-group,.text{
+  max-width: 320px;
+}
+
+.accountTabs{
+  margin: 5px;
+  border: 1px solid black;
+  width: 180px;
+  display: inline-block;
+}
+
+.accountTabs:hover{
+  border: 4px solid black;
+}
+
+div.accountTabs img{
+  width: 100%;
+  height: auto;
+}
+
+.tabDetail{
+  padding: 10px;
+  text-align: center;
+  background-color: #C6AC01;
+}
+.productTabs{
+  margin: 20px;
+  border: 1px solid black;
+  width: 360px;
+  display: inline-block;
+}
+
+.productTabs:hover{
+  border: 4px solid black;
+}
+
+div.productTabs img{
+  width: 100%;
+  height: auto%;
+}
+
+.productTabDetail{
+  padding: 20px;
+  text-align: center;
+  background-color: #C6AC01;
+}
+
+.card-img{
+  width: 50%;
+  height:50%;
+}
+
+/* Glen */
+
+.cart{
+
+	display: flex;
+
+}
+
+.products{
+
+	flex: 0.75;
+
+}
+
+.product{
+
+	display: flex;
+
+	width: 100%;
+
+	height: 300px;
+
+	overflow: hidden;
+
+	border: 1px solid silver;
+
+	margin-bottom: 20px;
+
+	background-color: #f5f5f2;
+
+}
+
+.product:hover{
+
+	border: none;
+
+	box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+
+	transform: scale(1.01);
+
+}
+
+.product > img{
+
+	width: 300px;
+
+	height: 200px;
+
+	object-fit: cover;
+
+}
+
+.product > img:hover{
+
+	transform: scale(1.04);
+
+}
+
+.productinfo{
+
+	padding: 20px;
+
+	width: 100%;
+
+	position: relative;
+
+}
+
+.productname, .productprice, .productoffer{
+
+	margin-bottom: 20px;
+
+}
+
+.productremove{
+
+	position: absolute;
+
+	bottom: 20px;
+
+	right: 20px;
+
+	padding: 10px 25px;
+
+	background-color: red;
+
+	color: black;
+
+	cursor: pointer;
+
+	border-radius: 5px;
+
+}
+
+.productremove:hover{
+
+	background-color: white;
+
+	color: black;
+
+	font-weight: 600;
+
+	border: 1px solid red;
+
+}
+
+.productquantity{
+
+	width: 60px;
+
+	padding: 5px;
+
+	text-align: center;
+
+}
+
+.fa{
+
+	margin-right: 5px;
+
+}
+
+.cart-total{
+
+	flex: 0.25;
+
+	margin-left: 20px;
+
+	padding: 20px;
+
+	height: 300px;
+
+	border: 1px solid silver;
+
+	border-radius: 5px;
+
+	background-color: #f5f5f2;
+
+}
+
+.cart-total p{
+
+	display: flex;
+
+	justify-content: space-between;
+
+	margin-bottom: 30px;
+
+	font-size: 20px;
+
+
+}
+
+.cart-total a{
+
+	display: block;
+
+	text-align: center;
+
+	height: 100px;
+
+	line-height: 40px;
+
+	background-color: #eddb18;
+
+	color: black;
+
+	text-decoration: none;
+
+}
+
+.cart-total a:hover{
+
+	background-color: white;
+
+	color: black;
+
+	font-weight: 550;
+
+	border: 1px solid #eddb18;
+
+}
+
+.checked{
+	color: red;
+}
+
+}
+
+/* Tomas */
+/* Tablet screen */
+@media only screen and (max-width: 800px) {
+  html,body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    min-height: 400px;
+    margin-bottom: 10%;
+    clear: both;
+    height: 100%;
+  }
+
+  a {
+    color: #00B7FF;
+  }
+
+  .logo{
+    height: 130px;
+    width: 150px;
+    padding-bottom: 10px;
+    padding-left: : 50px;
+  }
+
+  .logo-area{
+    background-color: grey;
+    padding-left: 280px;
+    position: relative;
+    padding-top: 20px;
+  }
+
+  .row{
+    position: absolute;
+    left: 280px;
+    font-size: 33px;
+    color: white;
+    font-style: oblique;
+    font-family: sans-serif;
+    padding-top: 2px;
+    max-width: 100%
+  }
+
+  .nav-item{
+    padding-left: 50px;
+    background-color: #e8c900;
+    border: 2px solid;
+    border-radius: 12px;
+    border-width: medium;
+    padding: 2px;
+    font-size: 25px;
+    text-align: center;
+  }
+
+  .footer{
+    background-color: #C6AC01;
+    position: fixed;
+    width: 80%;
+    height: 10px;
+    margin-top: 100px;
+    clear: both;
+  }
+
+  .ParagraphOne{
+  	text-align: center;
+  	top: 100px;
+  	border-width: 100px;
+  	width: 50%;
+  	border: 5px solid;
+    left: 180px;
+  	border-radius: 25px;
+  	padding: 8px;
+    font-size: 20px;
+    padding-bottom: 120px;
+  }
+
+  .content{
+    min-height: 100%;
+  }
+
+  .main{
+    overflow: auto;
+    padding-bottom: 50px;
+  }
+
+  .textcolour{
+  	color: #000000;
+  }
+
+  .checked{
+  	color: red;
+  }
+
+}
+
+/* Tomas */
+/* Phone screen */
+@media only screen and (max-width: 580px) {
+  html,body {
+    font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+    min-height: 400px;
+    margin-bottom: 10%;
+    clear: both;
+    height: 100%;
+  }
+
+  a {
+    color: #00B7FF;
+  }
+
+  .logo{
+    height: 130px;
+    width: 170px;
+    padding-bottom: 10px;
+    padding-left: : 300px;
+  }
+
+  .logo-area{
+    background-color: grey;
+    padding-left: 140px;/* moves image  */
+    position: relative;
+    padding-top: 20px;
+  }
+
+  .row{
+    position: absolute;
+    left: 190px;
+    font-size: 20px;
+    color: white;
+    font-style: oblique;
+    font-family: sans-serif;
+    padding-top: 2px;
+  }
+
+  .nav-item{
+    padding-left: 50px;
+    background-color: #e8c900;
+    border: 2px solid;
+    border-radius: 12px;
+    border-width: medium;
+    font-size: 16px;
+    padding: 2px;
+    font-size: 12px;
+  }
+
+  .col-sm-12 col-md-6 col-lg-2{
+    padding: 2px;
+  }
+
+  footer{
+    background-color: #C6AC01;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 14%;
+  }
+
+  .ParagraphOne{
+  	text-align: center;
+  	position: relative;
+  	top: 100px;
+  	border-width: 100px;
+  	width: 50%;
+  	border: 5px solid;
+  	border-radius: 25px;
+  	padding: 4px;
+    font-size: 21px;
+    left: 120px;
+  }
+
+  .content{
+    min-height: 100%;
+  }
+
+  .main{
+    overflow: auto;
+    padding-bottom: 50px;
+  }
+
+.toggle{
+	 padding-left: 50px;
+    background-color: #e8c900;
+    padding: 2px;
+
+}
+.checked{
+	color: red;
+}
