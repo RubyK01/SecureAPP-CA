@@ -6,37 +6,44 @@ var connection_details = require("../modules/connection_details");
 var upload = require('express-fileupload');
 var path = require('path');
 
-//Made by Tomas.
+//Made by Ruby.
 //to get upload Product page.
+// Create a MySQL connection pool
+var connection = mysql.createPool({
+  host: connection_details.host,
+  user: connection_details.user,
+  password: connection_details.password,
+  database: connection_details.database
+});
+
+// Handle GET request to '/uploadProduct'
 router.get('/', function(req, res, next) {
-  //If the user is not logged into an account while trying to go to this page,
-  //they will be taken back to the login page with the following error message.
-  var loggedIn = req.session.loggedIn;
-  if(!req.session.loggedIn === true){
-    res.redirect("/login"+"?&error=Please login to view page!");
+  // Check if the user is logged in
+  if (!req.session.loggedIn) {
+    return res.redirect("/login?error=Please login to view page!");
   }
-  var connection = mysql.createConnection({
-    host: connection_details.host,
-    user: connection_details.user,
-    password: connection_details.password,
-    database: connection_details.database
-  });
+
   var userName = req.session.username;
-  var message = req.query.message
+  var message = req.query.message;
   var error = req.query.error;
-  var loggedIn = req.session.loggedIn
+  var loggedIn = req.session.loggedIn;
   var customerID = req.session.userID;
-  var products = connection.query("SELECT * from products WHERE customerID = '"+customerID+"';");
-  var productIMG = connection.query("SELECT * from productIMG WHERE customerID = '"+customerID+"';");
-  res.render('uploadProduct',
-  { title: 'uploadProduct',
-    userName: userName,
-    error: error,
-    message: message,
-    loggedIn: loggedIn,
-    products: products,
-    productIMG: productIMG,
-    loggedIn: loggedIn
+
+  // Execute database queries
+  connection.query("SELECT * from products WHERE customerID = ?", [customerID], function(err, products) {
+    connection.query("SELECT * from productIMG WHERE customerID = ?", [customerID], function(err, productIMG) {
+      
+      // Render the page with fetched data
+      res.render('uploadProduct', {
+        title: 'uploadProduct',
+        userName: userName,
+        error: error,
+        message: message,
+        loggedIn: loggedIn,
+        products: products,
+        productIMG: productIMG
+      });
+    });
   });
 });
 
