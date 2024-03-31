@@ -5,63 +5,70 @@ var connection_details = require("../modules/connection_details")
 var session = require('express-session');
 var bcrypt = require('bcrypt');
 
-// To get login page.
+//Made by Ruby.
+//to get login page.
 router.get('/', function(req, res, next) {
-  var email = req.query.email; // Using req.query.email instead of req.body.email
-  var pass_word = req.query.pass_word; // Using req.query.pass_word instead of req.body.pass_word
-  var error = req.query.error; // Sanitizing error message before rendering it back to the page
-  var message = req.query.message; // Sanitizing message before rendering it back to the page
+  var email = req.body.email;
+	var pass_word = req.body.pass_word;
+  var error = req.query.error;
+  var message = req.query.message;
   var loggedIn = req.session.loggedIn;
-
-  // Rendering login page without escaping user inputs
-  res.render('login', { 
-    title: 'Login',
-    error: error ? error : '',
-    message: message ? message : '',
-    loggedIn: loggedIn,
-    userName: '',
-    pass_word: ''
-  });
+  res.render('login', { title: 'Login', error: error, message: message, loggedIn:loggedIn });
 });
 
-// For logging into an account
-router.post('/auth', async function(req, res) {
+//for logining into an account
+// The login function is async as we expect more than one user would be using it.
+router.post('/auth', async function(req, res) { //https://codeshack.io/basic-login-system-nodejs-express-mysql/
   var connection = mysql.createConnection({
     host: connection_details.host,
     user: connection_details.user,
     password: connection_details.password,
     database: connection_details.database
   });
-
-  var userName = req.body.userName; // SQL Injection vulnerability: Directly using user input in SQL query
-  var pass_word = req.body.pass_word; // SQL Injection vulnerability: Directly using user input in SQL query
-  var error = req.query.error; // Didn't want to use express flash so I made a variable to pass an error message out if needed.
-  var getHashPass = "SELECT * FROM customer WHERE userName = '"+userName+"';"; // SQL Injection vulnerability: User input not sanitized in SQL query
-  connection.query(getHashPass, async function login(err, results){
+  // To take the users inputs from the text fields.
+	var userName = req.body.userName;
+	var pass_word = req.body.pass_word;
+  var error = req.query.error; // Didnt want to use express flash so I made a variable to pass an error message out if needed.
+  //https://coderszine.com/user-login-and-registration-with-node-js-express-mysql/
+  //Above is the source where I learned how to let a user login.
+  //https://www.npmjs.com/package/express-session
+  //Above is the source where I learned where to use sessions.
+  var getHashPass = "SELECT * FROM customer WHERE userName = ?";
+  connection.query(getHashPass, [userName], async function login(err, results){
     if(results.length){
-      var pass = results[0].pass_word
-      var check = false // bcrypt.compare (Removed for demonstration)(pass_word, pass);
-      if(pass_word === pass){
-        check = true
-        console.log("check: "+check+"\n pass_word: "+pass_word+"\n pass: "+pass)
-        if(check){
-          req.session.user = results[0];
-          req.session.userID = results[0].customerID;
-          req.session.firstName = results[0].fName;
-          req.session.lastName = results[0].lName;
-          req.session.password = results[0].pass_word;
-          req.session.email = results[0].email;
-          req.session.username = results[0].userName;
-          req.session.loggedIn = true;
-          res.redirect('/account');
-        }
-        else{
-          res.redirect("/login"+"?&error=Invalid email/password!"); // Reflected XSS vulnerability: Error message not sanitized before rendering
-        }
+      // Where I learned how to use bcrypt https://www.npmjs.com/package/bcrypt
+      var pass = results[0].pass_word // takes the encrypted password from mysql
+      var dbUserName = results[0].userName
+      var check = await bcrypt.compare(pass_word,pass); //sees if the input and encrypted password are a match
+      console.log("check: "+check)
+      if(check){
+        //I saved the user details in the session for later use.
+        req.session.user = results[0]; //saved the whole query as an object just incase.
+        req.session.userID = results[0].customerID;
+        req.session.firstName = results[0].fName;
+        req.session.lastName = results[0].lName;
+        req.session.password = results[0].pass_word;
+        req.session.email = results[0].email;
+        req.session.username = results[0].userName;
+        req.session.loggedIn = true;
+         //logs for testing purposes.
+         // console.log("ID: "+results[0].customerID);
+         // console.log("Username: "+results[0].userName);
+         console.log(req.session); //Check the termincal for session details i.e cookie and user details.
+         res.redirect('/account');
       }
+      else{
+      //If the inputed details are incorrect or the account doesnt exist,
+      //the user is taken back to the login page and is greeted with the error below.
+      //https://www.w3schools.com/jsref/jsref_encodeuricomponent.asp
+      //In the above link I learned how to encode the uri to prevent XSS.
+      var errorMessage = "Invalid email/password!";
+      var encodedError = encodeURIComponent(errorMessage);
+      res.redirect("/login?&error=" + errorMessage);
+     }
     }
   })
+  console.log(pass_word)
 })
 
 module.exports = router;
-
