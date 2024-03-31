@@ -4,7 +4,7 @@ var mysql = require('mysql');
 var connection_details = require("../modules/connection_details");
 var bcrypt = require('bcrypt');
 
-//Made by Tomas.
+//Made by Ruby.
 //to get signup page.
 router.get('/', function(req, res, next) {
   //If the user is not logged into an account while trying to go to this page,
@@ -62,11 +62,13 @@ router.post('/create', async function (req, res, next){
       //check if county is valid.
       if(countys.includes(county.ignoreCase) && towncheck === true){
         //If the county is valid and the town/city does not have a number the address is valid.
-        connection.query("INSERT INTO address(addressline1, addressline2, townOrCity, county, zipCode, customerID) VALUES (?, ?, ?, ?, ?, ?);", [addressline1, addressline2, townOrCity, county, zipCode, customerID]);
-        res.redirect("/address");
+        connection.query("INSERT INTO address(addressline1, addressline2, townOrCity, county, zipCode, customerID) VALUES ((?), (?), (?), (?), (?), (?));", [addressline1, addressline2, townOrCity, county, zipCode, customerID]);
+        res.redirect("/address"+"?message=Account created successfully!");
       }
       else{
-        res.redirect("/address"+"?&error=Invalid address.");
+        errorMessage = "Invalid"
+        var encodedError = encodeURIComponent(errorMessage);
+        res.redirect("/address?&error=" + encodedError);
       }
     }
   }

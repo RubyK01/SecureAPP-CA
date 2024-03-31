@@ -64,7 +64,7 @@ router.post('/auth', async function(req, res) { //https://codeshack.io/basic-log
       //In the above link I learned how to encode the uri to prevent XSS.
       var errorMessage = "Invalid email/password!";
       var encodedError = encodeURIComponent(errorMessage);
-      res.redirect("/login?&error=" + errorMessage);
+      res.redirect("/login?&error=" + encodedError);
      }
     }
   })
