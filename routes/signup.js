@@ -79,22 +79,22 @@ router.post('/create', async function create(req, res, next){
           var encodedError = encodeURIComponent(errorMessage);
           return res.redirect("/signup?error=" + encodedError);
         }
-      }
-      else if(userName === checkUsername){
-        var errorMessage = "Username in use!";
-        var encodedError = encodeURIComponent(errorMessage);
-        return res.redirect("/signup?error=" + encodedError);
-      }
-      else if(email === checkEmail){
-        var errorMessage = "Email in use!";
-        var encodedError = encodeURIComponent(errorMessage);
-        return res.redirect("/signup?error=" + encodedError);
-      }
-      else{
-        var errorMessage = "Email and username in use!";
-        var encodedError = encodeURIComponent(errorMessage);
-        return res.redirect("/signup?error=" + encodedError);
-      }
+        }
+        else if(userName === checkUsername){
+          var errorMessage = "Username in use!";
+          var encodedError = encodeURIComponent(errorMessage);
+          return res.redirect("/signup?error=" + encodedError);
+        }
+        else if(email === checkEmail){
+          var errorMessage = "Email in use!";
+          var encodedError = encodeURIComponent(errorMessage);
+          return res.redirect("/signup?error=" + encodedError);
+        }
+        else{
+          var errorMessage = "Email and username in use!";
+          var encodedError = encodeURIComponent(errorMessage);
+          return res.redirect("/signup?error=" + encodedError);
+        }
     }
   });
 });
