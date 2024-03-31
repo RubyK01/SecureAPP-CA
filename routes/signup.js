@@ -53,8 +53,6 @@ router.post('/create', async function create(req, res, next){
           var salt = await bcrypt.genSaltSync(5); //the amount of times I want to salt a password
           pass_word = await bcrypt.hashSync(pass_word,salt); // salting the password and storing it in a variable.
           connection.query("INSERT INTO customer(fName, lName, userName, email, pass_word) VALUES ((?), (?), (?), (?), (?));", [fName, lName, userName, email, pass_word]);
-          console.log(req.body.fName , req.body.lName, req.body.userName, req.body.email, req.body.pass_word);
-          console.log("hashed password: "+pass_word);
           var message = "Account created successfully!";
           var encodedMessage = encodeURIComponent(message);
           return res.redirect("/login?message=" + encodedMessage);

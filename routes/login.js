@@ -54,7 +54,6 @@ router.post('/auth', async function(req, res) { //https://codeshack.io/basic-log
          //logs for testing purposes.
          // console.log("ID: "+results[0].customerID);
          // console.log("Username: "+results[0].userName);
-         console.log(req.session); //Check the termincal for session details i.e cookie and user details.
          res.redirect('/account');
       }
       else{
@@ -68,7 +67,6 @@ router.post('/auth', async function(req, res) { //https://codeshack.io/basic-log
      }
     }
   })
-  console.log(pass_word)
 })
 
 module.exports = router;
