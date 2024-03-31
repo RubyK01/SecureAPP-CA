@@ -56,7 +56,7 @@ router.post('/auth', async function(req, res) {
           res.redirect('/account');
         }
         else{
-          res.redirect("/login"+"?&error=Invalid email/password!"); // Reflected XSS vulnerability: Error message not sanitized before rendering
+          res.redirect("/login"+"?&error=Invalid email/password!");
         }
       }
     }
